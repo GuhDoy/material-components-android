@@ -56,6 +56,11 @@ public class CarouselMainDemoFragment extends DemoFragment {
             (item, position) -> carouselRecyclerView.scrollToPosition(position));
     carouselRecyclerView.setAdapter(adapter);
 
-    adapter.submitList(CarouselData.createItems());
+    adapter.submitList(CarouselData.createItems(), new Runnable() {
+      @Override
+      public void run() {
+        carouselRecyclerView.scrollToPosition(adapter.getItemCount() - 1);
+      }
+    });
   }
 }

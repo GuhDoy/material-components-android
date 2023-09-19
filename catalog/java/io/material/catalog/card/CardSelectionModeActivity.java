@@ -86,6 +86,7 @@ public class CardSelectionModeActivity extends DemoActivity implements ActionMod
           }
         });
     recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    recyclerView.scrollToPosition(adapter.getItemCount() - 1);
   }
 
   private List<Item> generateItems() {
